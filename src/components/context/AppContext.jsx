@@ -12,6 +12,11 @@ const AppReducer = (state,action) => {
                 ...state,
                 expenses:state.expenses.filter((item)=>item.id!==action.payload),
             }
+        case 'UPDATE_BUDGET': 
+            return {
+                ...state,
+                budget:action.payload
+            }
         default: return state;
     }
 
@@ -30,7 +35,6 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
     const [state,dispatch] = useReducer(AppReducer,intialState);
     const totalExpenses = state.expenses.reduce((total,item)=>total+=item.expense, 0);
-    // const value = {};
     return (
         <AppContext.Provider value={{
             budget:state.budget,
