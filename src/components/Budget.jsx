@@ -6,7 +6,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const Budget = () => {
   const {budget,dispatch} = useContext(AppContext);
-  const [newBudget,setNewBudget] = useState();
+  const [newBudget,setNewBudget] = useState('');
   const [isEditing,setIsEditing] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const Budget = () => {
       type:"UPDATE_BUDGET",
       payload:newBudget,
     });
-    setNewBudget(0);
+    setNewBudget('');
     setIsEditing(false);
   }
   return (
@@ -40,8 +40,9 @@ const Budget = () => {
         onSubmit={handleSubmit}
         >
           <TextField
+            label='New Budget'
             type='number'
-            placeholder='Enter new Budget'
+            // placeholder='Enter new Budget'
             value={newBudget}
             onChange={(e)=>setNewBudget(Number(e.target.value))}
           />      
@@ -54,7 +55,7 @@ const Budget = () => {
             onClick={
               ()=>{
                 setIsEditing(false)
-                setNewBudget(0)
+                setNewBudget('')
               }
             }
             endIcon={<CancelIcon/>}

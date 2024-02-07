@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const AddExpenseForm = () => {
   const [expenseName,setExpenseName] = useState('');
-  const [amountSpent,setAmountSpent] = useState(0);
+  const [amountSpent,setAmountSpent] = useState('');
   const {dispatch} =useContext(AppContext);
   console.log(expenseName);
   const handleSubmit = (event) => {
@@ -37,7 +37,7 @@ const AddExpenseForm = () => {
     });
     console.log("type",typeof(expenseName),typeof(amountSpent),typeof(newExpenseItem));
     setExpenseName('');
-    setAmountSpent(0);
+    setAmountSpent('');
   }
   return (
     <Box
