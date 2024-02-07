@@ -1,18 +1,23 @@
 import { Stack, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import CancelIcon from '@mui/icons-material/Cancel';
 import { blue } from '@mui/material/colors';
+import { AppContext } from './context/AppContext';
 
-const ExpenseItem = ({name,spent}) => {
+const ExpenseItem = (props) => {
+  const {dispatch}=useContext(AppContext);
+  const handleDelete = () =>{
+    dispatch({type:'DELETE_EXPENSE',payload:props.id})
+  }
   return (
     <Stack direction="row" gap={5}  border={1}>
         <Typography>
-            {name}
+            {props.name}
         </Typography>
         <Typography bgcolor="blue" px={2} borderRadius={5}>
-            {spent}
+            {props.expense}
         </Typography>
-        <CancelIcon/>
+        <CancelIcon onClick={handleDelete}/>
     </Stack>
   )
 }

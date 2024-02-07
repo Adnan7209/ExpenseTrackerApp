@@ -7,8 +7,6 @@ import ExpensesList from './components/ExpensesList'
 import AddExpenseForm from './components/AddExpenseForm'
 import Budget from './components/Budget'
 
-
-
 const App = () => {
   return (
     <Box>
@@ -17,8 +15,8 @@ const App = () => {
       </Typography>
       <Stack>
         <Budget/>
-        <Remaining/>
         <Expenditure/>
+        <Remaining/>        
       </Stack>
       <ExpensesList/>
       <AddExpenseForm/>

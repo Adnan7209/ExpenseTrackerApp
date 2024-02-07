@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from './context/AppContext'
 
 const Expenditure = () => {
+  const {totalExpenses}=useContext(AppContext);
   return (
-    <div>Expenditure</div>
+    <div>Expenditure : {totalExpenses}</div>
   )
 }
 
